@@ -5,6 +5,27 @@ secrets in SSM Parameter Store, an AWS service for storing secrets.
 
 For detailed info about using chamber, read [The Right Way To Manage Secrets](https://aws.amazon.com/blogs/mt/the-right-way-to-store-secrets-using-parameter-store/)
 
+  - [2.0 Breaking Changes](#20-breaking-changes)
+  - [Installing](#installing)
+  - [Authenticating](#authenticating)
+  - [Setting up KMS](#setting-up-kms)
+  - [Usage](#usage)
+    - [Writing Secrets](#writing-secrets)
+    - [Listing Secrets](#listing-secrets)
+    - [Historic view](#historic-view)
+    - [Exec](#exec)
+    - [Reading](#reading)
+    - [Exporting](#exporting)
+    - [Importing](#importing)
+    - [Deleting](#deleting)
+    - [AWS Region](#aws-region)
+    - [Custom SSM Endpoint](#custom-ssm-endpoint)
+  - [S3 Backend (experimental)](#s3-backend-experimental)
+    - [S3 Backend using KMS Key Encryption (Experimental)](#s3-backend-using-kms-key-encryption-experimental)
+  - [Null Backend (experimental)](#null-backend-experimental)
+  - [Analytics](#analytics)
+  - [Releasing](#releasing)
+
 ## 2.0 Breaking Changes
 
 Starting with version 2.0, chamber uses parameter store's path based API by default.  Chamber pre-2.0 supported this API using the `CHAMBER_USE_PATHS` environment variable.  The paths based API has performance benefits and is the recommended best practice by AWS.
@@ -17,7 +38,7 @@ To migrate to the new format, you can take advantage of the `export` and `import
 $ CHAMBER_NO_PATHS=1 chamber export foo | chamber import foo -
 ```
 
-## Installing
+## Installing- [Chamber](#chamber)
 
 If you have a functional go environment, you can install with:
 
